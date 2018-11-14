@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <form class="col-6 mt-5">
+      <h2 class="text-center"> Signup</h2>
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Name" #name>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" #email>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" class="form-control" id="password" placeholder="Password" #password>
+      </div>
+      <div class="form-group">
+        <label for="exampleCheck1">
+           Existing User Please <a routerLink="/signin">Signin</a>
+        </label>
+      </div>
+      <button (click)="signup(name.value,email.value,password.value)" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="row mt-5" >
+    <button class="fa fa-3x fa-facebook" ></button>
+  </div>
+</div>
