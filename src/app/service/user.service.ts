@@ -59,6 +59,19 @@ export class UserService {
     );
   }
 
+  fb_login_auth(auth: Authentication): Observable<User> {
+    console.log("FB login service called");
+    this.newdata = { "user": auth };
+    return this.http.post<User>(this.Url+"user/facebook",this.newdata, httpOptions)
+    .pipe(
+      tap( data => {
+           this.cookieService.set('Auth_Token', data.token);
+           this.router.navigate(['']);
+      }),
+      catchError(this.handleError<User>('fb_login_auth'))
+    );
+  }
+
   logout(): void {
     this.cookieService.delete('Auth_Token');
     this.router.navigate(['signin']);

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
+import { SocialLoginModule,AuthServiceConfig,GoogleLoginProvider,FacebookLoginProvider,LinkedinLoginProvider } from "angular5-social-auth";
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -23,9 +24,29 @@ import { SportNavbarComponent } from './sport-navbar/sport-navbar.component';
     BrowserModule,
     FormsModule,
     AppRouterModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("179363516275693")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("380941399893-ab4h4l565l7rgo364q44iislcd7ejqsv.apps.googleusercontent.com")
+        },
+      ]);
+  return config;
+}

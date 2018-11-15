@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-  }
+  } 
 
   signup(name,email,password): void {
     this.userService.signup({name,email , password} as Authentication).subscribe(users => this.users = users);
