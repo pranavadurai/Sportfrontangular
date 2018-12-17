@@ -1,30 +1,56 @@
-<div class="container">
+<div class="container-fluid" style="background-color: #e9ecef">
   <div class="row">
-    <form class="col-6 mt-5">
-      <h2 class="text-center"> Signup</h2>
-      <div class="form-group">
-        <label for="name">Name: </label>
-        <input type="text" class="form-control" id="name" placeholder="Enter Name" #name>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" #email>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="password">Password: </label>
-        <input type="password" class="form-control" id="password" placeholder="Password" #password>
-      </div>
-      <div class="form-group">
-        <label for="exampleCheck1">
-           Existing User Please <a routerLink="/signin">Signin</a>
-        </label>
-      </div>
-      <button (click)="signup(name.value,email.value,password.value)" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+    <div class="col-4 bg-pic">
+      
+    </div>
 
-  <div class="row mt-5" >
-    <button (click) = "socialSignIn('facebook')" class="fa fa-3x fa-facebook" ></button>
+    <div class="col-8">
+      <div class="row mt-5">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Signup</li>
+              <li class="breadcrumb-item"><a routerLink="/signin">Signin</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-8 border_right">
+
+        <h4 class="text-left mt-5 ml-4"> We will need ... </h4>
+
+        <form class="col-10 ml-5">
+
+          <div class="form-group mt-5">
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" #name>
+          </div>
+
+          <div class="form-group mt-5">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" #email>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <div class="form-group mt-5">
+            <input type="password" class="form-control" id="password" placeholder="Password" #password>
+          </div>
+
+          <div class="text-center">
+             <button (click)="signup(name.value,email.value,password.value)" class="btn btn-outline-dark mt-4">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-3">
+         <h4 class="text-left mt-5 ml-2" > Also you can ... </h4>
+        <div class="text-center">
+         <button (click) = "socialSignIn('facebook')" type="button" class="btn btn-outline-primary btn-lg mt-5">Signup with <i class="ml-3 fa  fa-1x fa-facebook"></i></button><br>
+         <button (click) = "socialSignIn('google')"   type="button" class="btn btn-outline-secondary btn-lg mt-4">Signup with <i class="ml-3 fa fa-1x fa-google"></i></button>
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>
 </div>

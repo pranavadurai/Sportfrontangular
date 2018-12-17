@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
-import { SocialLoginModule,AuthServiceConfig,GoogleLoginProvider,FacebookLoginProvider,LinkedinLoginProvider } from "angular5-social-auth";
+import { SocialLoginModule,AuthServiceConfig,GoogleLoginProvider,FacebookLoginProvider } from "angular5-social-auth";
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -11,6 +11,8 @@ import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
 import { AppRouterModule } from './app-router.module';
 import { SportNavbarComponent } from './sport-navbar/sport-navbar.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { ShowProfileComponent } from './profile/show-profile/show-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SportNavbarComponent } from './sport-navbar/sport-navbar.component';
     SignupComponent,
     SigninComponent,
     HomeComponent,
-    SportNavbarComponent
+    SportNavbarComponent,
+    EditProfileComponent,
+    ShowProfileComponent
   ],
   imports: [
     BrowserModule,

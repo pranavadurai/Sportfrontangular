@@ -26,7 +26,7 @@ export class UserService {
 
   getuser(): Observable<User> {
     httpOptions.headers = httpOptions.headers.set('authorization', 'Token token='+this.cookieService.get('Auth_Token'));
-    return this.http.get<User>(this.Url+"user",httpOptions)
+    return this.http.get<User>(this.Url+"users/user_info",httpOptions)
     .pipe(
       tap( _ =>
             console.log('Fetched User')
@@ -47,13 +47,14 @@ export class UserService {
   }
 
   signup(auth: Authentication): Observable<User>{
+    auth.provider = "Our";
     this.newdata = { "user": auth };
     console.log(this.newdata);
     return this.http.post<User>(this.Url+"users",this.newdata, httpOptions)
     .pipe(
       tap( data => {
         this.cookieService.set('Auth_Token', data.token);
-        this.router.navigate(['']);
+        this.router.navigate(['edit_profile']);
       }),
       catchError(this.handleError<User>('signup()'))
     );
@@ -66,7 +67,7 @@ export class UserService {
     .pipe(
       tap( data => {
            this.cookieService.set('Auth_Token', data.token);
-           this.router.navigate(['']);
+           this.router.navigate(['edit_profile']);
       }),
       catchError(this.handleError<User>('fb_login_auth'))
     );

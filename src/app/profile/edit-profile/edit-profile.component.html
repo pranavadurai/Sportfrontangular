@@ -1,0 +1,49 @@
+<app-sport-navbar [user] = "users"></app-sport-navbar>
+
+<div *ngIf="users">
+
+  <div class="container">
+    <div class="row">
+       {{ profile.name }}
+      <div class="col-6 mt-5">
+        <h2 class="text-center"> Edit Profile</h2>
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input [(ngModel)]="profile.name" class="form-control" id="name" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <img [src] = "profile.avatar || imagesrc" alt ="your image" class="img-thumbnail" id="sjpic">
+            </div>
+
+            <div class="col-md-7">
+              <label for="pic">Image: </label>
+              <input type ='file' (change) = "readURL($event);" class="custom-file-input" id="pic">
+              <label class="custom-file-label" for="pic" aria-describedby="picture">Choose file</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location: </label>
+          <input  [(ngModel)]="profile.location" class="form-control" id="location" placeholder="Where are you">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone: </label>
+          <input  [(ngModel)]="profile.phone" class="form-control" id="phone" placeholder="How can i contact you ?">
+        </div>
+        <div class="form-group">
+          <label for="work">Work: </label>
+          <input  [(ngModel)]="profile.work" class="form-control" id="work" placeholder="Where are you working ??">
+        </div>
+        <div class="form-group">
+          <label for="college">College: </label>
+          <input  [(ngModel)]="profile.college" class="form-control" id="college" placeholder="Which College ??">
+        </div>
+        <button (click)="update_profile(profile)" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

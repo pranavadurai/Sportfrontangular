@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../service/user.service';
 
 import { User } from '../model/User';
+import { Profile } from '../model/Profile';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,9 @@ import { User } from '../model/User';
 export class HomeComponent implements OnInit {
 
   users: User;
-  //headers: String[]; 
+
+  profile: Profile;
+  //headers: String[];
   error:string;
 
   constructor(private userService: UserService, private cookieService: CookieService) { }
@@ -26,7 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   getUser(): void {
-     this.userService.getuser().subscribe( users =>this.users = users );
+     this.userService.getuser().subscribe( users =>{
+                                                   this.users = users;
+                                                   this.profile = this.users.profile });
     }
 
     //getUser(): void {
